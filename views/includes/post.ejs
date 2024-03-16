@@ -10,9 +10,9 @@
             <div class="main-post">
                 <div class="post-content">
 
-                    <span class="post-header flex">
-                        <span>
-                            <span>
+                    <div class="post-header">
+                        <div class="user-auth-name-parent">
+                            <div class="user-auth-name">
                                 <a href="/<%= post.user.username %>">
                                     <h4 style="display: inline;">
                                         <%= post.user.name ? post.user.name : post.user.username %>
@@ -22,14 +22,14 @@
                                 <span style="font-size: 15px; opacity: .5;">
                                     @<%= post.user.username %>
                                 </span>
-                            </span>
-                            <span style="font-size: small; opacity: .5;">
-                                <span>&nbsp;&#183;&nbsp;</span>
+                            </div>
+                            <div style="font-size: small; opacity: .5; white-space: nowrap;">
+                                <span>&nbsp;&nbsp;&#183;&nbsp;</span>
                                 <span class="duration">
                                     <%= post.timestamp.time %>
                                 </span>
-                            </span>
-                        </span>
+                            </div>
+                        </div>
 
                         <!-- More Options -->
                         <span class="more-options flex">
@@ -85,7 +85,7 @@
                                     <% } %>
 
                         </span>
-                    </span>
+                    </div>
 
                     <div class="post-main-content" onclick="goToPost('<%= post.user.username %>', '<%= post._id %>')">
                         <pre class="preserve"><%- post.content.trim().replace(/\r\n/g, "<br>" ) %></pre>

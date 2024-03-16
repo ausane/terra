@@ -89,9 +89,39 @@ a {
 .post-header {
     width: 100%;
     height: 20px;
+    display: flex;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: flex-start;
+}
+
+.user-auth-name-parent {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+    height: 100%;
+}
+
+.user-auth-name {
+    height: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow-x: hidden;
+    box-shadow:
+        inset -2px 0 0 0 #232332fe,
+        inset -4px 0 0 0 #232332ed,
+        inset -6px 0 0 0 #232332dc,
+        inset -8px 0 0 0 #232332cb,
+        inset -10px 0 0 0 #232332bf,
+        inset -12px 0 0 0 #232332b8,
+        inset -14px 0 0 0 #23233288,
+        inset -16px 0 0 0 #23233255,
+        inset -18px 0 0 0 #23233244,
+        inset -20px 0 0 0 #23233233,
+        inset -22px 0 0 0 #23233222,
+        inset -24px 0 0 0 #23233211;
+
 }
 
 .material-symbols-rounded {
@@ -150,7 +180,7 @@ a {
     flex-direction: column;
     background-color: #181828;
     box-shadow: -5px 5px 20px 1px #00000085;
-    z-index: 999999999;
+    z-index: 99;
 }
 
 .options-items {

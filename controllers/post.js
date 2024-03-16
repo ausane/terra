@@ -13,9 +13,9 @@ const submitPost = async (req, res) => {
     const user = await User.findByUsername(username);
 
     // Get the formatted time with options
-    const postTime = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+    const postTime = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' });
     // Get the formatted date with options
-    const postDate = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const postDate = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'Asia/Kolkata' });
 
 
     // Save Post to Database 
