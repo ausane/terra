@@ -9,6 +9,10 @@
     z-index: 99;
 }
 
+#terra {
+    display: none;
+}
+
 #navbar .navitem-home {
     font-variation-settings:
         'FILL' 1,
