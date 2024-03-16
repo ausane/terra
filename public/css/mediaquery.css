@@ -132,7 +132,7 @@
 
 @media screen and (max-width: 480px) {
     body {
-        font-size: small;
+        font-size: 15px;
     }
 
     #terra {
@@ -141,6 +141,10 @@
         font-size: large;
         font-variant: small-caps;
         letter-spacing: 1px;
+    }
+
+    .post-header h4 {
+        font-size: 1rem;
     }
 
     #edit-form {
@@ -199,6 +203,11 @@
     #conversation-messages,
     #send-message-input-box {
         width: 100%;
+    }
+
+    #conversation-header,
+    #send-message-input-box {
+        position: fixed;
     }
 
     /* Scrollbar Style  */
