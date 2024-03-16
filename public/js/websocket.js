@@ -1,5 +1,5 @@
 // Establish WebSocket connection
-const socket = new WebSocket('ws://localhost:8080'); // Replace with your server URL
+const socket = new WebSocket('wss://terra-uyvg.onrender.com');
 
 // Event listener for WebSocket connection opened
 socket.addEventListener('open', function (event) {
