@@ -73,6 +73,8 @@
 #matched-usernames {
     width: 100%;
     height: auto;
+    display: flex;
+    flex-direction: column;
     max-height: 75%;
     overflow-y: auto;
     box-sizing: border-box;

@@ -32,7 +32,11 @@ searchInputBox.addEventListener('input', (event) => {
                 }
             })
             .then(data => {
-                searchedOutput(data);
+                if (data.length === 0) {
+                    foundedUsers.innerHTML = `<div class="pnfm">No results were found for that username!</div>`;
+                } else {
+                    searchedOutput(data);
+                }
             })
             .catch(error => console.error('Error:', error));
     } else {
