@@ -42,6 +42,7 @@
     font-variant: small-caps;
     align-self: center;
     border-bottom: var(--border);
+    letter-spacing: 1px;
 }
 
 #compose-btn {
