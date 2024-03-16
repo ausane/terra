@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= user.username %> / Terra
+    </title>
+    <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/css/ccss.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/compose.css">
+
+    <!-- Style Links -->
+    <%- include('includes/csslinks') %>
+</head>
+
+<body>
+    <!-- Compose Post -->
+    <%- include('includes/compose') %>
+
+        <!-- Delete Post -->
+        <%- include('includes/deletion') %>
+
+            <!-- Navigation SideBar -->
+            <%- include('includes/navbar') %>
+
+                <!-- Update Profile -->
+                <div id="edit-profile"></div>
+
+                <!-- Content Container -->
+                <div id="content-container">
+                    <!-- container -->
+                    <div id="main-content">
+                        <div class="profile">
+                            <img id="dp" src="/images/<%= user.picture %>" alt="<%= user.picture %>">
+                            <div class="pd-container">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <div class="unc">
+                                        <h4 style="font-size: large;">
+                                            <%= user.name ? user.name : user.username %>
+                                        </h4>
+                                        <span class="fn">
+                                            <span>&#64;<%= user.username %></span>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <% if (currentUser && currentUser.username===user.username) { %>
+                                            <button class="ep-btn" onclick="editProfile()">Edit profile</button>
+                                            <% } else { %>
+                                                <button type="button" id="profile-follow-btn" class="ep-btn"
+                                                    onclick="followBtn('<%= currentUser._id %>', '<%= user._id %>')">
+                                                    <%= currentUser.following.includes(user._id) ? 'Following'
+                                                        : 'Follow' %>
+                                                </button>
+                                                <% } %>
+                                    </div>
+                                </div>
+
+
+                                <div style="opacity: .8;">
+                                    <pre class="preserve"><%= user.bio %></pre>
+                                </div>
+
+                                <div>
+                                    <div class="profile-additionals">
+                                        <span class="material-symbols-rounded" style="font-size: 15px; opacity: .5;">
+                                            calendar_month
+                                        </span>
+                                        <span style="opacity: .5;">
+                                            Joined <%= user.createdAt %>
+                                        </span>
+
+                                    </div>
+
+                                    <% if (user.location && user.location.trim()) { %>
+                                        <div class="profile-additionals">
+                                            <span class="material-symbols-rounded"
+                                                style="font-size: 15px; opacity: .5;">
+                                                location_on
+                                            </span>
+                                            <span style="opacity: .5;">
+                                                <%= user.location %>
+                                            </span>
+                                        </div>
+                                        <% } %>
+
+                                            <% if (user.website && user.website.trim()) { %>
+                                                <div class="profile-additionals">
+                                                    <span class="material-symbols-rounded fn"
+                                                        style="font-size: 15px; opacity: .5; transform: rotate(-45deg);">
+                                                        link
+                                                    </span>
+                                                    <a href="https://<%= user.website %>" target="_blank"
+                                                        style="color: #88f;">
+                                                        <%= user.website %>
+                                                    </a>
+                                                </div>
+                                                <% } %>
+                                </div>
+
+                                <div class="pff-counts">
+                                    <span>
+                                        <span class="fc">
+                                            <%= posts.length %>
+                                        </span>
+                                        <span id="ps-ct" class="fn">posts</span>
+                                    </span>
+                                    <span>
+                                        <span class="fc">
+                                            <%= user.following.length %>
+                                        </span>
+                                        <span class="fn">following</span>
+                                    </span>
+                                    <span>
+                                        <span id="fc-add" class="fc">
+                                            <%= user.followers.length %>
+                                        </span>
+                                        <span class="fn">followers</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="users-activities">
+                            <a class="ps-links flex" href="/<%= user.username %>">Posts</a>
+                            <a class="ps-links flex" href="/<%= user.username %>/replies">Replies</a>
+                            <a class="ps-links flex" href="/<%= user.username %>/likes">Likes</a>
+                            <a class="ps-links flex" href="/<%= user.username %>/bookmarks">Bookmarks</a>
+                        </div>
+
+                        <div class="container">
+                            <%- include('includes/post') %>
+
+                                <% if (posts.length===0) { %>
+                                    <span class="pnfm">
+                                        No posts found here!
+                                    </span>
+                                    <% } %>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script>
+                    const pp = `<%= user.picture %>`
+                    const Followed = `<%= currentUser.following.includes(user._id) ? 'followed' : 'unfollowed' %>`
+                    const currentUserUsername = `<%= currentUser ? currentUser.username : null %>`;
+                    const ProfileUserUsername = `<%= user.username %>`;
+                </script>
+                <script src="/js/profile.js"></script>
+                <script src="/js/cspt.js"></script>
+                <script src="/js/compose.js"></script>
+</body>
+
+</html>

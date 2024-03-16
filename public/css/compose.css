@@ -1,0 +1,117 @@
+#source-compose-div {
+    display: none;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    box-sizing: border-box;
+    background-color: #18182885;
+}
+
+#compose-options-div {
+    top: 0;
+    z-index: 99;
+    position: sticky;
+    justify-content: flex-end;
+}
+
+.compose-post-close {
+    cursor: pointer;
+}
+
+#compose-post-div {
+    top: 4rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: auto;
+    max-height: 65vh;
+    border: var(--border);
+    border-radius: 1rem;
+    background-color: #181828;
+    z-index: 99999;
+    padding: .5rem 1rem;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.dp-form-div img {
+    width: 36px;
+    height: 36px;
+    margin-top: 2px;
+    border-radius: 50%;
+}
+
+.dp-form-div {
+    display: flex;
+}
+
+#form-to-compose-post {
+    margin-left: 1rem;
+    padding-block: .5rem;
+    width: 100%;
+    gap: .5rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+#btn-to-submit-post {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: 4rem;
+    height: 2rem;
+    font: 1em 'Inter', sans-serif;
+    border-radius: 1rem;
+    align-self: flex-end;
+    margin-right: 1rem;
+    background-color: #4f4fbf;
+    color: var(--main-text-color);
+}
+
+#btn-to-submit-post:disabled {
+    opacity: .5;
+    cursor: auto;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    height: auto;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    overflow-y: auto;
+    box-sizing: border-box;
+    background-color: inherit;
+    color: var(--main-text-color);
+    font-family: 'Inter', sans-serif;
+}
+
+#content {
+    min-height: 48px;
+    max-height: calc(60vh - 5rem);
+    border-bottom: 1px solid #dee2e644;
+}
+
+.post-thread {
+    width: 2px;
+    margin: auto;
+    height: calc(100% - 42px);
+    background-color: #99b8d375;
+}
+
+.remove-unness-elements {
+    padding: 0;
+    border-bottom: none;
+}
+
+.image-div-element {
+    padding-top: 10px;
+    margin: 0;
+}

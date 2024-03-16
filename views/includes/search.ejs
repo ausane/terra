@@ -1,0 +1,16 @@
+<% for (element of matchedUsers) { %>
+    <a href="/<%= element.username %>">
+        <div class="st-mc">
+            <img src="/images/<%= element.picture %>" alt="photo" class="picture">
+            <div class="st-pd">
+                <span class="st-span1">
+                    <%= element.name ? element.name : element.username %>
+                </span>
+                <span class="st-span2">@<%= element.username %></span>
+                <span class="st-span3">
+                    <%= element.bio %>
+                </span>
+            </div>
+        </div>
+    </a>
+    <% } %>

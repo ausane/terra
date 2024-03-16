@@ -1,0 +1,262 @@
+:root {
+    --blue-color: #bfbfdf;
+    --main-text-color: #dee2e6;
+    --border: 1px solid #ffffff22;
+    --main-background-color: #232332;
+    --sub-box-border: 1px solid #ffffff22;
+    --main-dark-background-color: #1f1f21;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-text-color);
+    font-family: 'Inter', sans-serif;
+    background-color: var(--main-background-color);
+}
+
+#main-content {
+    width: 80%;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    border-left: var(--border);
+    border-right: var(--border);
+    padding-bottom: 5rem;
+}
+
+#content-container {
+    width: 75%;
+    height: 100vh;
+    overflow: auto;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+.picture {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.post {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    padding-inline: 1rem;
+    box-sizing: border-box;
+    border-bottom: var(--border);
+}
+
+.main-post {
+    width: calc(100% - 2rem);
+    padding-block: .5rem;
+    box-sizing: border-box;
+}
+
+.post-main-content {
+    width: 100%;
+    cursor: pointer;
+    margin-block: 5px;
+}
+
+.preserve {
+    margin: 0;
+    font-size: inherit;
+    font-family: inherit;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+.post-header {
+    width: 100%;
+    height: 20px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.material-symbols-rounded {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+/* More Options */
+.more-options {
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.more-horiz {
+    opacity: .5;
+    cursor: pointer;
+}
+
+.more-horiz:hover {
+    z-index: 4;
+    color: #ddf;
+    border-radius: 50%;
+    background-color: #bcbcff22;
+}
+
+.more {
+    opacity: 0;
+    font-size: 10px;
+    background-color: #ffffff22;
+    padding-inline: 2px;
+    border-radius: 2px;
+    transform: translate(.2rem, .8rem);
+    transition: all .2s ease 0s;
+}
+
+.more-horiz:hover+.more {
+    opacity: 1;
+    transition-delay: 1s;
+}
+
+/* Action Options */
+.action-options {
+    position: relative;
+    display: none;
+    width: auto;
+    height: auto;
+    gap: .5rem;
+    z-index: 5;
+    padding: 5px;
+    border: var(--border);
+    transform: translateX(.5rem);
+    border-radius: 5px;
+    flex-direction: column;
+    background-color: #181828;
+    box-shadow: -5px 5px 20px 1px #00000085;
+    z-index: 999999999;
+}
+
+.options-items {
+    gap: .5rem;
+    cursor: pointer;
+    padding-inline: 5px;
+    font-size: small;
+    justify-content: flex-start;
+}
+
+.options-items:hover {
+    border-radius: 2px;
+    background-color: #ffffff0f;
+}
+
+.options-items a {
+    color: var(--main-text-color);
+}
+
+.options-items a:hover {
+    text-decoration: none;
+}
+
+.options-icons {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 200,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+.red {
+    color: #ff4444;
+}
+
+.navigation-icons-div {
+    font-size: small;
+    margin-top: 1rem;
+    opacity: .5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    transform: translateX(-2px);
+}
+
+.direct-comment-btn {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    outline: none;
+    background: none;
+    border: none;
+}
+
+.navigation-icons {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 100,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+.dp-div {
+    padding-top: 10px;
+}
+
+.hetl {
+    cursor: pointer;
+}
+
+.hebl {
+    cursor: pointer;
+}
+
+.hetl:hover {
+    color: red;
+}
+
+.hebl:hover {
+    color: lightblue;
+}
+
+.fg {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    gap: 5px;
+}
+
+.favorite-btn {
+    color: red;
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 100,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+.bookmark-btn {
+    color: lightblue;
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 100,
+        'GRAD' 0,
+        'opsz' 24
+}

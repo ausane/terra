@@ -1,0 +1,345 @@
+#search-messages-background {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    box-sizing: border-box;
+    background-color: #18182885;
+}
+
+#search-users-to-message {
+    width: 45%;
+    height: 88vh;
+    border-radius: 10px;
+    background-color: #181828;
+    z-index: 99999;
+    box-sizing: border-box;
+    border: var(--sub-box-border);
+}
+
+#add-new-conversations {
+    width: 100%;
+    height: 10%;
+    padding: 8px 1rem;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-bottom: var(--sub-box-border);
+}
+
+#user-search-box {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 15%;
+    border-bottom: var(--sub-box-border);
+    box-sizing: border-box;
+    background-color: inherit;
+    z-index: 9;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#user-search-input-box {
+    width: 80%;
+    height: 2rem;
+    padding: 0;
+    padding-left: 8px;
+    margin: 0%;
+    color: var(--main-text-color);
+    outline: none;
+    background: none;
+    box-sizing: border-box;
+    font-size: 1rem;
+    border: var(--sub-box-border);
+    border-left: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.search-icon {
+    width: 10%;
+    height: 2rem;
+    color: #ffffff8f;
+    padding-left: 8px;
+    padding-block: 4px;
+    border: var(--sub-box-border);
+    border-right: none;
+    box-sizing: border-box;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+#matched-usernames {
+    width: 100%;
+    height: auto;
+    max-height: 75%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.searched-users {
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.searched-users span {
+    display: inline-block;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.span2-username {
+    font-size: smaller;
+    opacity: .5;
+}
+
+.users-elements {
+    height: 52px;
+    width: 100%;
+    padding: 8px 1rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.ipd {
+    height: inherit;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.b-h {
+    background-color: #ffffff05;
+    justify-content: space-between;
+}
+
+.clicked-conversation {
+    background-color: #4444881f;
+    border-right: 4px solid #448;
+}
+
+.unseen-chat-messages {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #47f;
+}
+
+.users-elements:hover {
+    cursor: pointer;
+    background-color: #ffffff05;
+}
+
+#users-conversations {
+    height: 100vh;
+    width: 60%;
+    overflow-y: scroll;
+}
+
+
+/* conversations-users */
+#conversations-users {
+    width: 40%;
+    height: 100vh;
+    box-sizing: border-box;
+    border-left: var(--border);
+    border-right: var(--sub-box-border);
+}
+
+#conversation-settings {
+    width: 100%;
+    height: 10vh;
+    padding: 8px 1rem;
+    box-sizing: border-box;
+    justify-content: flex-end;
+    border-bottom: var(--sub-box-border);
+    background-color: var(--main-background-color);
+}
+
+#send-message-input-box {
+    display: none;
+    position: absolute;
+    width: 45%;
+    height: auto;
+    min-height: 4rem;
+    bottom: 0;
+    border-top: var(--sub-box-border);
+    box-sizing: border-box;
+    padding: 8px 10px;
+    gap: 1rem;
+    z-index: 99;
+    background-color: var(--main-background-color);
+}
+
+#message-textarea {
+    width: 80%;
+    padding: 8px 10px;
+    border: var(--sub-box-border);
+    border-radius: 8px;
+    background-color: #18182885;
+    line-height: 1.45;
+    max-height: calc(1.45em * 4);
+}
+
+#last-of-conversation,
+#send-message-btn {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    background: none;
+}
+
+#send-message-btn {
+    opacity: .5;
+    cursor: auto;
+}
+
+#last-of-conversation {
+    display: none;
+    bottom: 5rem;
+    right: 22%;
+    position: absolute;
+    transform: rotate(90deg);
+}
+
+.arrow {
+    padding: 4px;
+    border: var(--sub-box-border);
+    border-radius: 50%;
+    background: #18182885;
+    z-index: 99;
+}
+
+#started-conversations {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+#conversation-header {
+    position: absolute;
+    display: flex;
+    top: 0;
+    width: 45%;
+    height: 10vh;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: var(--sub-box-border);
+    gap: 1rem;
+    padding: 8px 1rem;
+    z-index: 99;
+    background-color: var(--main-background-color);
+}
+
+#conversation-participant {
+    width: 85%;
+    height: 100%;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+#conversation-messages {
+    display: flex;
+    position: absolute;
+    top: 10vh;
+    bottom: 4rem;
+    width: 45%;
+    height: auto;
+    padding-top: 2rem;
+    flex-direction: column;
+    overflow-y: auto;
+    box-sizing: border-box;
+    gap: 2px;
+}
+
+.newMessage {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-inline: 1rem;
+}
+
+.message-text {
+    margin-block: 8px;
+    border-radius: 10px;
+    padding: 10px 1rem;
+    margin: 0%;
+    height: auto;
+    max-width: 60%;
+    font-size: smaller;
+    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+.user1_messages {
+    align-items: flex-start;
+}
+
+.user2_messages {
+    align-items: flex-end;
+}
+
+.user1_messages .message-text {
+    border-bottom-left-radius: 2px;
+    background-color: #48485888;
+}
+
+.user2_messages .message-text {
+    border-bottom-right-radius: 2px;
+    background-color: #448;
+}
+
+.message-timestamp {
+    margin: 0;
+    padding: 8px 2px;
+    box-sizing: border-box;
+    opacity: .5;
+    font-size: 10px;
+}
+
+#back-arrow {
+    display: none;
+}
+
+.recipient-dp {
+    height: 2rem;
+    width: 2rem;
+}
+
+/* Navbar Style */
+#navbar .navitem-message {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+#navbar .text-message {
+    font-weight: 700;
+}

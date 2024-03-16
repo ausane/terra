@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore / Terra</title>
+
+    <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/css/ccss.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/compose.css">
+    <link rel="stylesheet" href="/css/search.css">
+
+
+    <!-- CSS Links -->
+    <%- include('includes/csslinks') %>
+</head>
+
+<body>
+    <!-- Compose Post -->
+    <%- include('includes/compose') %>
+
+        <!-- Delete Post -->
+        <%- include('includes/deletion') %>
+
+            <!-- Navigation SideBar -->
+            <%- include('includes/navbar') %>
+
+                <div id="content-container">
+                    <div id="main-content">
+                        <div id="user-search-box" class="flex">
+
+                            <form action="/search" method="get" class="search-form">
+                                <span class="material-symbols-rounded search-icon">
+                                    search
+                                </span>
+                                <input type="text" name="q" id="search" autocomplete="off" placeholder="Search"
+                                    required>
+                            </form>
+
+                            <div id="qu-search"></div>
+                        </div>
+
+                        <div id="search-ctgs">
+                            <% if (posts) { %>
+                                <span id="people-tab" class="sctgi flex ctfs"
+                                    onclick="peopleTabFunction()">People</span>
+                                <span id="post-tab" class="sctgi flex" onclick="postTabFunction()">Posts</span>
+                                <% } %>
+                        </div>
+
+                        <div id="matched-tc">
+                            <div id="search-people" class="mtcs">
+                                <% if (matchedUsers) { %>
+                                    <%- include('includes/search') %>
+                                        <% } %>
+
+                                            <% if (matchedUsers && matchedUsers.length===0) { %>
+                                                <span class="pnfm">
+                                                    Your search returned no matches people.
+                                                </span>
+                                                <% } %>
+                            </div>
+                            <div id="search-post" class="mtcs">
+                                <% if (posts) { %>
+                                    <%- include('includes/post') %>
+                                        <% } %>
+
+                                            <% if (posts && posts.length===0) { %>
+                                                <span class="pnfm">
+                                                    Your search returned no matches posts.
+                                                </span>
+                                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <script src="/js/search.js"></script>
+                <script src="/js/cspt.js"></script>
+                <script src="/js/compose.js"></script>
+</body>
+
+</html>

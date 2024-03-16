@@ -1,0 +1,22 @@
+#content-header {
+    top: 0;
+    height: 4rem;
+    position: sticky;
+    background-color: #1818281f;
+    backdrop-filter: blur(5px);
+    border-bottom: var(--border);
+    transition: 1s;
+    z-index: 99;
+}
+
+#navbar .navitem-home {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+#navbar .text-home {
+    font-weight: 700;
+}

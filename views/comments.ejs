@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+    <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/css/ccss.css">
+    <link rel="stylesheet" href="/css/compose.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/comment.css">
+    <link rel="stylesheet" href="/css/form.css">
+
+    <!-- Style Links -->
+    <%- include('includes/csslinks') %>
+
+</head>
+
+<body>
+    <!-- Compose Post -->
+    <%- include('includes/compose') %>
+
+        <!-- Delete Post -->
+        <%- include('includes/deletion') %>
+
+            <!-- Navigation SideBar -->
+            <%- include('includes/navbar') %>
+
+                <div id="content-container">
+                    <div id="main-content">
+                        <div id="post-arrow-back-symbol">
+                            <a href="/home" id="arrow-back-of-comments" class="flex">
+                                <span class="material-symbols-rounded">
+                                    arrow_back
+                                </span>
+                            </a>
+                            <span>Post</span>
+                        </div>
+
+                        <%- include('includes/ances') %>
+
+                            <div style="min-height: 100vh;">
+
+                                <div class="parent-post" id="<%= post._id %>" style="padding-top: 10px;">
+
+                                    <div class="parent-post-header flex">
+                                        <span style="display: flex; gap: 1rem;">
+                                            <a href="/<%= post.user.username %>" class="flex">
+                                                <img src="/images/<%= post.user.picture %>" alt="img" class="picture">
+                                            </a>
+                                            <span>
+                                                <span class="parent-post-username flex">
+                                                    <a style="height: 1rem;" href="/<%= post.user.username %>">
+                                                        <h4 style="display: inline;">
+                                                            <%= post.user.name ? post.user.name : post.user.username %>
+                                                        </h4>
+                                                    </a>
+
+                                                    <span style=" opacity: .5;">
+                                                        @<%= post.user.username %>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </span>
+
+
+                                        <!-- More Options -->
+                                        <span class="more-options flex">
+                                            <span class="material-symbols-rounded more-horiz"
+                                                style="opacity: .5; cursor: pointer;" onclick="moreOptions(this)">
+                                                more_horiz
+                                            </span>
+                                            <span class="more">more</span>
+                                        </span>
+
+                                        <span class="action-options" style="cursor: pointer;">
+
+                                            <% if (currentUser && currentUser.username===post.user.username) { %>
+
+                                                <span class="options-items flex red"
+                                                    onclick="deletePost('<%= post._id %>')">
+                                                    <span class="material-symbols-rounded options-icons">
+                                                        delete
+                                                    </span>
+                                                    <span class="options-text">Delete</span>
+                                                </span>
+                                                <span class="edit-post-btn options-items flex"
+                                                    onclick="composePostBtn(this, '<%= post._id %>')">
+                                                    <span class="material-symbols-rounded options-icons">
+                                                        edit_note
+                                                    </span>
+                                                    <span class="options-text">Edit</span>
+                                                </span>
+
+                                                <% } else { %>
+
+                                                    <!-- Follow  -->
+                                                    <span
+                                                        class="follow-unfollow <%= post.user.username %> options-items flex"
+                                                        onclick="followBtn('<%= currentUser._id %>', '<%= post.user._id %>', '<%= post._id %>')">
+
+                                                        <span class="material-symbols-rounded options-icons">
+                                                            <%= post.user.followers.includes(currentUser._id) ? 'cancel'
+                                                                : 'add_circle' %>
+                                                        </span>
+                                                        <span class="options-text">
+                                                            <%= post.user.followers.includes(currentUser._id)
+                                                                ? 'Unfollow' : 'Follow' %>
+                                                                &#64;<%= post.user.username %>
+                                                        </span>
+                                                    </span>
+
+                                                    <!-- Message -->
+                                                    <span class="options-items flex">
+                                                        <span class="material-symbols-rounded options-icons">
+                                                            mail
+                                                        </span>
+                                                        <span class="options-text">
+                                                            Message
+                                                        </span>
+                                                    </span>
+
+                                                    <!-- Block -->
+                                                    <span class="options-items flex">
+                                                        <span class="material-symbols-rounded options-icons">
+                                                            block
+                                                        </span>
+                                                        <span class="options-text">
+                                                            Block &#64;<%= post.user.username %>
+                                                        </span>
+                                                    </span>
+
+                                                    <% } %>
+
+                                        </span>
+                                    </div>
+
+                                    <div style="width: 100%; margin-block: 1rem;">
+                                        <pre class="preserve"
+                                            style="font-size: large;"><%- post.content.trim().replace(/\r\n/g, "<br>" ) %></pre>
+                                    </div>
+
+                                    <span style="font-size: small; opacity: .5;">
+                                        <%= post.timestamp.clock %>
+                                            <span>&nbsp;&#183;&nbsp;</span>
+                                            <%= post.timestamp.date %> -
+                                                <%= post.timestamp.year %>
+                                    </span>
+
+                                </div>
+
+                                <div class="parent-post-p">
+                                    <span class="fg">
+                                        <span class="material-symbols-rounded navigation-icons sct">
+                                            comment
+                                        </span>
+                                        <span>
+                                            <%= post.comments.length %>
+                                        </span>
+                                    </span>
+
+                                    <span id="rtp" class="fg">
+                                        <span class="material-symbols-rounded navigation-icons sct">
+                                            maps_ugc
+                                        </span>
+                                    </span>
+
+                                    <!-- </button> -->
+                                    <span class="fg">
+                                        <span
+                                            class="material-symbols-rounded hetl <%= currentUser.likes.includes(post._id) ? 'favorite-btn' : 'navigation-icons'  %>"
+                                            onclick="addToFavoritePost(this,'<%= currentUser._id %>', '<%= post._id %>')">
+                                            favorite
+                                        </span>
+                                        <span>
+                                            <%= post.likes.length %>
+                                        </span>
+                                    </span>
+
+                                    <span class="fg" onclick="bCount()">
+                                        <span
+                                            class="material-symbols-rounded hebl <%= currentUser.bookmarks.includes(post._id) ? 'bookmark-btn' : 'navigation-icons'  %>"
+                                            onclick="bookmarkPost(this,'<%= currentUser._id %>', '<%= post._id %>')">
+                                            bookmark
+                                        </span>
+                                        <span id="bCount">
+                                            <%= post.bookmarks.length %>
+                                        </span>
+                                    </span>
+
+                                </div>
+
+                                <p class="parent-post-p">
+                                    Comments
+                                </p>
+
+                                <!-- Create Comment -->
+                                <div class="comment-form flex">
+                                    <span style="align-self: flex-start;" class="flex">
+                                        <img src="/images/<%= currentUser.picture %>" alt="img" class="picture">
+                                    </span>
+
+                                    <form id="form-to-post" method="post"
+                                        action="/<%= post.user.username %>/post/<%= post.id %>/comment/submit">
+                                        <textarea name="content" id="comment" oninput="autoResize(this)"
+                                            placeholder="Type something..." required></textarea>
+                                        <button type="submit" id="post-btn" disabled>Reply</button>
+                                    </form>
+                                </div>
+
+
+                                <%- include('includes/post') %>
+                            </div>
+                    </div>
+                </div>
+
+
+                <script src="/js/comment.js"></script>
+                <script src="/js/cspt.js"></script>
+                <script src="/js/compose.js"></script>
+
+</body>
+
+</html>

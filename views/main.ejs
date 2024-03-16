@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts / Terra</title>
+    <link rel="stylesheet" href="css/post.css">
+    <link rel="stylesheet" href="css/ccss.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/compose.css">
+
+    <!-- Style Links -->
+    <%- include('includes/csslinks') %>
+</head>
+
+<body>
+    <!-- Compose Post -->
+    <%- include('includes/compose') %>
+
+        <!-- Delete Post -->
+        <%- include('includes/deletion') %>
+
+            <!-- Navigation SideBar -->
+            <%- include('includes/navbar') %>
+
+
+                <div id="content-container">
+                    <!-- Main Content -->
+                    <div id="main-content">
+
+                        <!-- Top Navbar -->
+                        <div id="content-header"></div>
+
+                        <%- include('includes/post') %>
+                    </div>
+                </div>
+
+
+                <script src="js/script.js"></script>
+                <script src="js/cspt.js"></script>
+                <script src="js/compose.js"></script>
+</body>
+
+</html>

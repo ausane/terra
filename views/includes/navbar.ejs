@@ -1,0 +1,67 @@
+<div id="navbar-container">
+    <nav id="navbar">
+        <span class="nav-items flex logos">
+            <span class="navbar-text">Terra</span>
+            <span class="logo">T</span>
+        </span>
+        <% if (currentUser) { %>
+            <!-- Home -->
+            <a class="nav-items flex" href="/home">
+                <span class="material-symbols-rounded navitem-home">
+                    home
+                </span>
+                <span class="navbar-text text-home">Home</span>
+            </a>
+
+            <!-- Search -->
+            <a class="nav-items flex" href="/explore">
+                <span class="material-symbols-rounded navitem-search">
+                    search
+                </span>
+                <span class="navbar-text text-search">Search</span>
+            </a>
+
+            <!-- Messages -->
+            <a class="nav-items flex" href="/messages">
+                <span class="material-symbols-rounded navitem-message">
+                    mail
+                </span>
+                <span class="navbar-text text-message">Messages</span>
+            </a>
+
+            <!-- Profile -->
+            <a class="nav-items flex" href="/<%= currentUser.username %>">
+                <span id="nip" class="material-symbols-rounded">
+                    person
+                </span>
+                <span id="ntp" class="navbar-text">Profile</span>
+            </a>
+
+            <!-- Compose -->
+            <span class="nav-items flex">
+                <button type="button" id="compose-btn" onclick="composePostBtn(this)">
+                    <span class="navbar-text">Compose</span>
+                    <span class="material-symbols-rounded" id="draw-post">
+                        stylus
+                    </span>
+                </button>
+            </span>
+
+            <!-- LogOut -->
+            <a id="logout-link" class="nav-items flex" href="/logout">
+                <span class="material-symbols-rounded">
+                    logout
+                </span>
+                <span class="navbar-text">LogOut</span>
+            </a>
+            <% } else { %>
+                <!-- Login -->
+                <a class="nav-items flex" href="/login">
+                    <span class="material-symbols-rounded">
+                        login
+                    </span>
+                    <span class="navbar-text">LogIn</span>
+                </a>
+                <% } %>
+    </nav>
+</div>

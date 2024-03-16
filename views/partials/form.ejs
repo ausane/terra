@@ -1,0 +1,114 @@
+<div id="edit-form">
+    <div class="dn-dp">
+        <span id="cls-ef-btn" class="material-symbols-rounded cp">
+            close
+        </span>
+    </div>
+    <form id="ep-form" method="post" action="/<%= user.username %>/profile/update?_method=PUT">
+
+        <div id="update-image">
+            <div id="u-i-btn" class="epp-div cp">
+                <span class="add-photo flex">
+                    <span class="material-symbols-rounded">
+                        add_a_photo
+                    </span>
+                </span>
+
+                <img id="edit-picture" src="/images/<%= user.picture %>" alt="photo">
+            </div>
+        </div>
+
+
+        <label for="picture" id="cp-label">Choose an image:</label>
+        <select id="picture" name="picture">
+            <option value="" selected disabled hidden></option>
+            <option value="image1.jpeg">image</option>
+            <option value="image2.jpeg">image</option>
+            <option value="image3.jpeg">image</option>
+            <option value="image4.jpeg">image</option>
+            <option value="image5.jpeg">image</option>
+            <option value="image6.jpeg">image</option>
+            <option value="image7.jpeg">image</option>
+            <option value="image8.jpeg">image</option>
+            <option value="image9.jpeg">image</option>
+            <option value="image10.jpeg">image</option>
+            <option value="image11.jpeg">image</option>
+            <option value="image12.jpeg">image</option>
+            <option value="image13.jpeg">image</option>
+            <option value="image14.jpeg">image</option>
+            <option value="image15.jpeg">image</option>
+            <option value="image16.jpeg">image</option>
+            <option value="image17.jpeg">image</option>
+            <option value="image18.jpeg">image</option>
+        </select>
+
+        <div class="custom-select" id="custom-select">
+            <!-- Images will be added dynamically via JavaScript -->
+        </div>
+
+        <div class="form-div">
+            <div class="lcc">
+                <label for="name">Name</label>
+                <span class="ctc">
+                    <span class="count-characters">
+                        <%= user.name ? user.name.length : 0 %>
+                    </span>
+                    <span> / 15</span>
+                </span>
+            </div>
+
+            <input type="text" id="name" name="name" value="<%= user.name ? user.name : user.username %>"
+                placeholder="What people used to call you..." autocomplete="off" oninput="validateInput(this)"
+                maxlength="15" required>
+        </div>
+        <div class="form-div">
+            <div class="lcc">
+                <label for="bio">Bio</label>
+                <span class="ctc">
+                    <span class="count-characters">
+                        <%= user.bio ? user.bio.length : 0 %>
+                    </span>
+                    <span> / 150</span>
+                </span>
+            </div>
+
+            <textarea type="text" id="bio" name="bio" rows="1" placeholder="Introduce yourself in a few words..."
+                autocomplete="off" oninput="autoResize(this); validateInput(this)"
+                maxlength="150"><%= user.bio %></textarea>
+        </div>
+
+        <div class="form-div">
+            <div class="lcc">
+                <label for="website">Website</label>
+                <span class="ctc">
+                    <span class="count-characters">
+                        <%= user.website ? user.website.length : 0 %>
+                    </span>
+                    <span> / 40</span>
+                </span>
+            </div>
+
+            <input type="text" id="website" name="website" value="<%= user.website %>"
+                placeholder="Enter your website URL" autocomplete="off" oninput="validateInput(this)" maxlength="40">
+        </div>
+
+        <div class="form-div">
+            <div class="lcc">
+                <label for="location">Location</label>
+                <span class="ctc">
+                    <span class="count-characters">
+                        <%= user.location ? user.location.length : 0 %>
+                    </span>
+                    <span> / 40</span>
+                </span>
+            </div>
+            <input type="text" id="location" name="location" value="<%= user.location %>"
+                placeholder="Enter your city or town" autocomplete="off" oninput="validateInput(this)" maxlength="40">
+        </div>
+
+        <span style="display: flex; gap:1rem; justify-content: flex-start;">
+            <button type="submit" id="name-submit-btn">Submit</button>
+        </span>
+
+    </form>
+</div>

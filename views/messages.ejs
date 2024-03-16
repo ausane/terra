@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Messages / Terra</title>
+        <link rel="stylesheet" href="/css/post.css">
+        <link rel="stylesheet" href="/css/ccss.css">
+        <link rel="stylesheet" href="/css/navbar.css">
+        <link rel="stylesheet" href="/css/compose.css">
+        <link rel="stylesheet" href="/css/messages.css">
+
+        <!-- CSS Links -->
+        <%- include('includes/csslinks') %>
+    </head>
+
+</head>
+
+<body>
+    <!-- Compose Post -->
+    <%- include('includes/compose') %>
+
+        <!-- Navigation SideBar -->
+        <%- include('includes/navbar') %>
+
+            <div id="search-messages-background" class="flex">
+                <div id="search-users-to-message">
+                    <div id="add-new-conversations" class="flex">
+                        <span>New conversation</span>
+                        <span class="material-symbols-rounded cp" onclick="removeSMG()">
+                            close
+                        </span>
+                    </div>
+                    <div id="user-search-box" class="flex">
+                        <span class="material-symbols-rounded search-icon">
+                            search
+                        </span>
+                        <input type="text" name="username" id="user-search-input-box" autocomplete="off"
+                            placeholder="search people" required>
+                    </div>
+                    <div id="matched-usernames"></div>
+                </div>
+            </div>
+
+
+            <div id="content-container" class="flex">
+                <!-- Main Content -->
+                <div id="conversations-users">
+                    <div id="conversation-settings" class="flex">
+                        <span class="material-symbols-rounded cp" onclick="displaySMG()">
+                            person_add
+                        </span>
+                    </div>
+                    <div id="started-conversations">
+                        <% for (chat of chats) { %>
+                            <div class="users-elements <%= chat.hasUnseenMessages ? 'b-h' : 'b-w' %>"
+                                id="<%= chat.chatId._id %>">
+                                <div class="ipd">
+                                    <img src="/images/<%= chat.chatId.picture %>" alt="photo" class="picture">
+                                    <p class="searched-users flex">
+                                        <span>
+                                            <%= chat.chatId.name ? chat.chatId.name : chat.chatId.username %>
+                                        </span>
+                                        <span class="span2-username">
+                                            @<%= chat.chatId.username %>
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <% if (chat.hasUnseenMessages) { %>
+                                    <div class="unseen-chat-messages"></div>
+                                    <% } %>
+                            </div>
+
+                            <% } %>
+
+                                <% if (chats.length===0) { %>
+                                    <span class="pnfm" style="padding-inline: 10%;">
+                                        Click on this &nbsp;
+                                        <span class="material-symbols-rounded">person_add</span>
+                                        &nbsp; icon to search people and start a new conversation.
+                                    </span>
+                                    <% } %>
+                    </div>
+                </div>
+
+                <div id="users-conversations">
+                    <div id="conversation-header">
+                        <span id="back-arrow" class="material-symbols-rounded cp">
+                            arrow_back
+                        </span>
+                        <span id="conversation-participant" class="flex"></span>
+                    </div>
+
+                    <div id="conversation-messages" onscroll="checkScroll(this)"></div>
+                    <button type="button" id="last-of-conversation" onclick="bottomOfConversation()">
+                        <span class="material-symbols-rounded arrow">
+                            double_arrow
+                        </span>
+                    </button>
+                    <div id="send-message-input-box" class="flex">
+                        <textarea type="text" name="message" id="message-textarea" rows="1" spellcheck="false"
+                            oninput="autoResizeMessageDiv(this)" autocomplete="off" placeholder="Write message..."
+                            required></textarea>
+                        <button type="submit" id="send-message-btn" disabled>
+                            <span class="material-symbols-rounded arrow-upward arrow">
+                                arrow_upward
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const currentUserId = `<%= currentUser._id %>`;
+                const currentUserUsername = `<%= currentUser.username %>`;
+            </script>
+            <script src="/js/cspt.js"></script>
+            <script src="/js/compose.js"></script>
+            <script src="/js/messages.js"></script>
+            <script src="/js/websocket.js"></script>
+</body>
+
+</html>

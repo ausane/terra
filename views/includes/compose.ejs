@@ -1,0 +1,29 @@
+<!-- Flash Messages -->
+<% if (postCreated.length!==0 ) { %>
+    <div class="flash-message flash flex">
+        <%= postCreated %>
+    </div>
+    <% } %>
+
+        <!-- Compose Post -->
+        <div id="source-compose-div">
+            <div id="compose-post-div">
+                <div id="compose-options-div" class="flex">
+                    <span class="material-symbols-rounded compose-post-close" onclick="closeBtn()">
+                        close
+                    </span>
+                </div>
+
+                <div class="dp-form-div">
+                    <!-- Display Picture -->
+                    <img src="/images/<%= currentUser.picture %>" alt="photo">
+
+                    <!-- Compose Post -->
+                    <form id="form-to-compose-post" method="post" action="/post/submit">
+                        <textarea name="content" id="content" oninput="autoResize(this)" spellcheck="false"
+                            placeholder="Start writing..." required></textarea>
+                        <button type="submit" id="btn-to-submit-post" onclick="closeBtn()" disabled>Post</button>
+                    </form>
+                </div>
+            </div>
+        </div>

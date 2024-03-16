@@ -1,0 +1,147 @@
+<% if (ances) { %>
+    <div class="posts" id="ances">
+        <% for (post of ances) { %>
+            <div class="post" id="<%= post._id %>" style="border-bottom: none;">
+                <div class="dp-div">
+                    <a href="/<%= post.user.username %>" class="flex" style="margin-bottom: 4px;">
+                        <img src="/images/<%= post.user.picture %>" alt="img" class="picture">
+                    </a>
+                    <div class="threads"></div>
+                </div>
+
+                <div class="main-post">
+                    <div class="post-content">
+
+                        <span class="post-header flex">
+                            <span>
+                                <span>
+                                    <a href="/<%= post.user.username %>">
+                                        <h4 style="display: inline; font-weight: bold;">
+                                            <%= post.user.name ? post.user.name : post.user.username %>
+                                        </h4>
+                                    </a>
+
+                                    <span style="font-size: 15px; opacity: .5;">
+                                        @<%= post.user.username %>
+                                    </span>
+                                </span>
+                                <span style="font-size: small; opacity: .5;">
+                                    <span>&nbsp;&#183;&nbsp;</span>
+                                    <span class="duration">
+                                        <%= post.timestamp.time %>
+                                    </span>
+                                </span>
+                            </span>
+
+                            <!-- More Options -->
+                            <span class="more-options flex">
+                                <span class="material-symbols-rounded more-horiz" style="opacity: .5;"
+                                    onclick="moreOptions(this)">
+                                    more_horiz
+                                </span>
+                                <span class="more">more</span>
+                            </span>
+
+                            <span class="action-options">
+
+                                <% if (currentUser && currentUser.username===post.user.username) { %>
+
+                                    <span class="options-items flex red" onclick="deletePost('<%= post._id %>')">
+                                        <span class="material-symbols-rounded options-icons">
+                                            delete
+                                        </span>
+                                        <span class="options-text">Delete</span>
+                                    </span>
+                                    <span class="edit-post-btn options-items flex"
+                                        onclick="composePostBtn(this, '<%= post._id %>')">
+                                        <span class="material-symbols-rounded options-icons">
+                                            edit_note
+                                        </span>
+                                        <span class="options-text">Edit</span>
+                                    </span>
+
+                                    <% } else { %>
+
+                                        <!-- Follow  -->
+                                        <span class="follow-unfollow <%= post.user.username %> options-items flex"
+                                            onclick="followBtn('<%= currentUser._id %>', '<%= post.user._id %>', '<%= post._id %>')">
+
+                                            <span class="material-symbols-rounded options-icons">
+                                                <%= post.user.followers.includes(currentUser._id) ? 'cancel'
+                                                    : 'add_circle' %>
+                                            </span>
+                                            <span class="options-text">
+                                                <%= post.user.followers.includes(currentUser._id) ? 'Unfollow'
+                                                    : 'Follow' %>
+                                                    &#64;<%= post.user.username %>
+                                            </span>
+                                        </span>
+                                        <!-- Message -->
+                                        <span class="options-items flex send-message-to" id="<%= post.user.username %>">
+                                            <span class="material-symbols-rounded options-icons">
+                                                mail
+                                            </span>
+                                            <span class="options-text">
+                                                Message
+                                            </span>
+                                        </span>
+                                        <!-- Block -->
+                                        <span class="options-items flex">
+                                            <span class="material-symbols-rounded options-icons">
+                                                block
+                                            </span>
+                                            <span class="options-text">
+                                                Block &#64;<%= post.user.username %>
+                                            </span>
+                                        </span>
+
+                                        <% } %>
+                            </span>
+                        </span>
+
+                        <div class="post-main-content"
+                            onclick="goToPost('<%= post.user.username %>', '<%= post._id %>')">
+                            <pre class="preserve"><%- post.content.trim().replace(/\r\n/g, "<br>" ) %></pre>
+                        </div>
+
+                    </div>
+
+                    <div class="navigation-icons-div">
+                        <a href="http://localhost:8080/posts/<%= post._id %>/" class="fg">
+                            <span class="material-symbols-rounded navigation-icons">
+                                comment
+                            </span>
+                            <span>
+                                <%= post.comments.length %>
+                            </span>
+                        </a>
+                        <button type="button" class="direct-comment-btn fg"
+                            onclick="composePostBtn(this, '<%= post._id %>', '<%= post.user.username %>')">
+                            <span class="material-symbols-rounded navigation-icons">
+                                maps_ugc
+                            </span>
+                        </button>
+                        <span class="fg">
+                            <span
+                                class="material-symbols-rounded hetl <%= currentUser.likes.includes(post._id) ? 'favorite-btn' : 'navigation-icons'  %>"
+                                onclick="addToFavoritePost(this,'<%= currentUser._id %>', '<%= post._id %>')">
+                                favorite
+                            </span>
+                            <span>
+                                <%= post.likes.length %>
+                            </span>
+                        </span>
+
+                        <span
+                            class="material-symbols-rounded hebl <%= currentUser.bookmarks.includes(post._id) ? 'bookmark-btn' : 'navigation-icons'  %>"
+                            onclick="bookmarkPost(this,'<%= currentUser._id %>', '<%= post._id %>')">
+                            bookmark
+                        </span>
+
+                    </div>
+
+                </div>
+            </div>
+            <% } %>
+    </div>
+    <% } %>

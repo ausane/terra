@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup / Terra</title>
+    <link rel="stylesheet" href="/css/login.css">
+
+    <!-- Style Links -->
+    <%- include('../includes/csslinks') %>
+</head>
+
+<body>
+    <div class="flash-message">
+        <%= errOccurred %>
+    </div>
+
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        <form id="signup-form" method="post" action="/signup">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" autocomplete="off" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" autocomplete="off" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" autocomplete="off" required>
+
+            <button id="signup-button" type="submit">Sign Up</button>
+        </form>
+
+        <p class="signup-message">Already have an account? <a href="/login">Login</a></p>
+    </div>
+
+</body>
+
+</html>

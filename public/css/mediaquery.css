@@ -1,0 +1,200 @@
+/* Styles for screens larger than 900px */
+@media only screen and (max-width: 901px) {
+    #edit-form {
+        width: 50%;
+    }
+
+    #back-arrow {
+        display: block;
+    }
+
+    #content-container {
+        width: 70%;
+    }
+
+    #navbar-container {
+        width: 30%;
+    }
+
+    #main-content {
+        width: 100%;
+    }
+
+    #navbar {
+        width: 90%;
+    }
+
+    /* Messages */
+    #conversations-users {
+        width: 100%;
+    }
+
+    #users-conversations {
+        display: none;
+        width: 100%;
+        border-left: var(--border);
+    }
+
+    #conversation-header,
+    #conversation-messages,
+    #send-message-input-box {
+        width: calc(70% - 1px);
+    }
+
+    #compose-post-div,
+    #search-users-to-message {
+        width: 60%;
+    }
+}
+
+/* Styles for screens smaller than 600px */
+@media only screen and (max-width: 600px) {
+    #edit-form {
+        width: 80%;
+    }
+
+    #content-container {
+        width: 90%;
+    }
+
+    #navbar-container {
+        width: 10%;
+    }
+
+    #main-content {
+        width: 100%;
+    }
+
+    #navbar {
+        width: 100%;
+        align-items: center;
+        padding-inline: 0;
+    }
+
+    .nav-items {
+        justify-content: center;
+    }
+
+    .navbar-text {
+        display: none;
+    }
+
+    .logo,
+    #draw-post {
+        display: block;
+    }
+
+    #compose-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+    }
+
+    #compose-post-div {
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        max-height: 100%;
+        border-radius: 0%;
+        border: none;
+    }
+
+    #conversation-header,
+    #conversation-messages,
+    #send-message-input-box {
+        width: calc(90% - 1px);
+
+    }
+
+    #conversation-header,
+    #conversation-settings,
+    #user-search-box,
+    #add-new-conversations {
+        height: 4rem;
+    }
+
+    #conversation-messages {
+        top: 4rem;
+    }
+
+    #started-conversations,
+    #matched-usernames {
+        max-height: calc(100vh - 8rem);
+    }
+
+    #search-users-to-message {
+        width: 100%;
+        height: 100vh;
+        border: none;
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: small;
+    }
+
+    #edit-form {
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        border: none;
+        border-radius: 0;
+    }
+
+    #content-container {
+        width: 100%;
+    }
+
+    #main-content {
+        width: 100%;
+        z-index: 2;
+        border: none;
+    }
+
+    #navbar-container {
+        position: absolute;
+        z-index: 11;
+        bottom: 0;
+        height: 4rem;
+        width: 100%;
+        border-top: .1mm solid #ffffff44;
+        background-color: #181828;
+    }
+
+    #navbar {
+        flex-direction: row;
+    }
+
+    .logos,
+    #bookmark,
+    #logout-link {
+        display: none;
+    }
+
+    #compose-post-div {
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        max-height: 100%;
+        border-radius: 0%;
+        border: none;
+    }
+
+    #conversations-users,
+    #users-conversations {
+        border: none;
+    }
+
+    #conversation-header,
+    #conversation-messages,
+    #send-message-input-box {
+        width: 100%;
+    }
+
+    /* Scrollbar Style  */
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+}

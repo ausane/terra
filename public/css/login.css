@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #232332;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-container {
+    padding-inline: 20px;
+    width: 280px;
+    font-size: 15px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #434358;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+}
+
+h2 {
+    color: inherit;
+}
+
+a {
+    color: #53d856;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#login-button,
+#signup-button {
+    background-color: #4caf50;
+}
+
+#login-button:hover,
+#signup-button:hover {
+    background-color: #45a049;
+}
+
+
+.login-message,
+.signup-message {
+    font-size: small;
+    margin-top: 15px;
+    color: #bbf;
+}
+
+.error-message {
+    color: #d44;
+    display: block;
+    text-align: left;
+    font-size: small;
+}
+
+.flash-message {
+    color: #d44;
+    text-align: left;
+    padding-inline: 10%;
+    margin-bottom: .5rem;
+}

@@ -1,0 +1,320 @@
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.profile {
+    width: 100%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-bottom: var(--border);
+}
+
+#edit-picture,
+#dp {
+    height: 4rem;
+    width: 4rem;
+    border: var(--border);
+    border-radius: 5px;
+    align-self: flex-start;
+}
+
+.profile h4 {
+    margin: 0;
+    color: #efefffee;
+}
+
+.users-activities {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #21212f;
+    border-bottom: var(--border);
+}
+
+.ps-links {
+    height: 100%;
+    box-sizing: border-box;
+    opacity: .5;
+}
+
+.sps-link {
+    opacity: 1;
+    border-bottom: 2px solid #5f5fff;
+}
+
+#edit-profile {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 99999;
+    box-sizing: border-box;
+    background-color: #18182885;
+}
+
+#edit-form {
+    width: 40%;
+    height: auto;
+    max-height: 80vh;
+    padding: 1rem;
+    font-size: 15px;
+    font-weight: 100;
+    border: var(--border);
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #181828;
+    overflow: auto;
+}
+
+.dn-dp {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+}
+
+.form-div {
+    border: var(--border);
+    margin-block: 1rem;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+#edit-form button {
+    cursor: pointer;
+    margin: 0;
+    padding: .5rem 1rem;
+    color: inherit;
+    outline: none;
+    background: none;
+    background-color: #28284f;
+    border: var(--border);
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+#edit-form button:hover {
+    background-color: #232342;
+}
+
+#img-btn {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+label {
+    display: block;
+    font-size: small;
+    margin-block: 2px;
+    text-align: left;
+    color: #bfbfffaf;
+}
+
+#edit-profile input {
+    width: 100%;
+    padding: 1px;
+    outline: none;
+    box-sizing: border-box;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    background: none;
+    opacity: .8;
+}
+
+textarea::placeholder,
+#edit-profile input::placeholder {
+    color: #dfdfff44;
+}
+
+.ep-btn {
+    cursor: pointer;
+    margin: 0;
+    padding: 8px 10px;
+    color: inherit;
+    outline: none;
+    background: none;
+    border: var(--border);
+    border-radius: 1rem;
+    opacity: .8;
+    font-family: inherit;
+}
+
+#bio {
+    line-height: 1.45rem;
+    max-height: calc(4*1.45rem);
+    font-size: 15px;
+    opacity: .8;
+}
+
+.pd-container {
+    height: 100%;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.unc {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pff-counts {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+#navbar .navitem-profile {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+#navbar .text-profile {
+    font-weight: 700;
+}
+
+.profile-additionals {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    font-size: small;
+    margin-top: 8px;
+}
+
+/* Hide the default select arrow */
+select {
+    display: none;
+}
+
+/* Style the container for the custom select */
+.custom-select {
+    display: none;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-height: 10rem;
+    overflow-y: auto;
+    border: var(--border);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Style the individual image option */
+.custom-option {
+    width: 100px;
+    height: 100px;
+    margin: 0%;
+    padding: 0%;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+#cp-label {
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.custom-option:first-child {
+    display: none;
+}
+
+/* Style the selected image option */
+.custom-option.selected {
+    border-color: blue;
+    border-radius: 7px;
+}
+
+/* Ensure images maintain aspect ratio */
+.custom-option img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+.add-photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    backdrop-filter: blur(.1mm);
+}
+
+.epp-div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#update-image {
+    display: flex;
+    align-items: flex-start;
+}
+
+.add-photo:hover {
+    background-color: #18182844;
+}
+
+.lcc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ctc {
+    color: #bfbfdf88;
+    font-size: 10px;
+}
+
+.fc {
+    font-size: small;
+    opacity: .8;
+}
+
+.fn {
+    font-size: small;
+    opacity: .5;
+}
+
+
+@media only screen and (max-width: 901px) {
+    .container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        border: none;
+    }
+}
