@@ -154,7 +154,7 @@
     }
 
     #navbar-container {
-        position: absolute;
+        position: fixed;
         z-index: 11;
         bottom: 0;
         height: 4rem;
