@@ -63,6 +63,7 @@ a {
     padding-inline: 1rem;
     box-sizing: border-box;
     border-bottom: var(--border);
+    overflow: hidden;
 }
 
 .main-post {
@@ -96,10 +97,11 @@ a {
 }
 
 .user-auth-name-parent {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 70%;
+    max-width: 70%;
     height: 100%;
 }
 
@@ -108,20 +110,6 @@ a {
     max-width: 100%;
     white-space: nowrap;
     overflow-x: hidden;
-    box-shadow:
-        inset -2px 0 0 0 #232332fe,
-        inset -4px 0 0 0 #232332ed,
-        inset -6px 0 0 0 #232332dc,
-        inset -8px 0 0 0 #232332cb,
-        inset -10px 0 0 0 #232332bf,
-        inset -12px 0 0 0 #232332b8,
-        inset -14px 0 0 0 #23233288,
-        inset -16px 0 0 0 #23233255,
-        inset -18px 0 0 0 #23233244,
-        inset -20px 0 0 0 #23233233,
-        inset -22px 0 0 0 #23233222,
-        inset -24px 0 0 0 #23233211;
-
 }
 
 .material-symbols-rounded {
@@ -172,7 +160,6 @@ a {
     width: auto;
     height: auto;
     gap: .5rem;
-    z-index: 5;
     padding: 5px;
     border: var(--border);
     transform: translateX(.5rem);

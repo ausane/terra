@@ -12,7 +12,7 @@
 
                     <div class="post-header">
                         <div class="user-auth-name-parent">
-                            <div class="user-auth-name">
+                            <span class="user-auth-name">
                                 <a href="/<%= post.user.username %>">
                                     <h4 style="display: inline;">
                                         <%= post.user.name ? post.user.name : post.user.username %>
@@ -22,24 +22,24 @@
                                 <span style="font-size: 15px; opacity: .5;">
                                     @<%= post.user.username %>
                                 </span>
-                            </div>
-                            <div style="font-size: small; opacity: .5; white-space: nowrap;">
+                            </span>
+                            <span style="font-size: small; opacity: .5; white-space: nowrap;">
                                 <span>&nbsp;&nbsp;&#183;&nbsp;</span>
                                 <span class="duration">
                                     <%= post.timestamp.time %>
                                 </span>
-                            </div>
+                            </span>
                         </div>
 
                         <!-- More Options -->
-                        <span class="more-options flex">
+                        <div class="more-options flex">
                             <span class="material-symbols-rounded more-horiz" onclick="moreOptions(this)">
                                 more_horiz
                             </span>
                             <span class="more">more</span>
-                        </span>
+                        </div>
 
-                        <span class="action-options">
+                        <div class="action-options">
 
                             <% if (currentUser && currentUser.username===post.user.username) { %>
 
@@ -84,7 +84,7 @@
 
                                     <% } %>
 
-                        </span>
+                        </div>
                     </div>
 
                     <div class="post-main-content" onclick="goToPost('<%= post.user.username %>', '<%= post._id %>')">
