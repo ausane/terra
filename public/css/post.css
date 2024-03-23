@@ -160,11 +160,11 @@ a {
 /* Action Options */
 .action-options {
     position: absolute;
-    right: 1rem;
+    right: 0;
     display: none;
     width: auto;
     height: auto;
-    gap: .5rem;
+    gap: 8px;
     padding: 5px;
     border: var(--border);
     transform: translateX(.5rem);
