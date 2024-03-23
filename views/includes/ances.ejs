@@ -13,22 +13,21 @@
                     <div class="post-content">
 
                         <span class="post-header flex">
-                            <span>
-                                <span>
+                            <div class="user-auth-name-parent">
+                                <span class="user-auth-name">
                                     <a href="/<%= post.user.username %>">
-                                        <h4 style="display: inline; font-weight: bold;">
+                                        <h4 style="display: inline;">
                                             <%= post.user.name ? post.user.name : post.user.username %>
                                         </h4>
                                     </a>
-
                                 </span>
-                                <span style="font-size: small; opacity: .5;">
-                                    <span>&nbsp;&#183;&nbsp;</span>
+                                <span style="font-size: small; opacity: .5; white-space: nowrap;">
+                                    <span>&nbsp;&nbsp;&#183;&nbsp;</span>
                                     <span class="duration">
                                         <%= post.timestamp.time %>
                                     </span>
                                 </span>
-                            </span>
+                            </div>
 
                             <!-- More Options -->
                             <span class="more-options flex">
@@ -70,6 +69,7 @@
                                             <span class="options-text">
                                                 <%= post.user.followers.includes(currentUser._id) ? 'Unfollow'
                                                     : 'Follow' %>
+                                                    &#64;<%= post.user.username %>
                                             </span>
                                         </span>
                                         <!-- Message -->

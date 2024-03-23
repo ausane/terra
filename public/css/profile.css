@@ -28,7 +28,9 @@
 
 .profile h4 {
     margin: 0;
+    max-width: 80%;
     color: #efefffee;
+    overflow-wrap: anywhere;
 }
 
 .users-activities {

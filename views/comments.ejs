@@ -66,15 +66,15 @@
 
 
                                         <!-- More Options -->
-                                        <span class="more-options flex">
+                                        <div class="more-options flex">
                                             <span class="material-symbols-rounded more-horiz"
                                                 style="opacity: .5; cursor: pointer;" onclick="moreOptions(this)">
                                                 more_horiz
                                             </span>
                                             <span class="more">more</span>
-                                        </span>
+                                        </div>
 
-                                        <span class="action-options" style="cursor: pointer;">
+                                        <div class="action-options" style="cursor: pointer;">
 
                                             <% if (currentUser && currentUser.username===post.user.username) { %>
 
@@ -107,6 +107,7 @@
                                                         <span class="options-text">
                                                             <%= post.user.followers.includes(currentUser._id)
                                                                 ? 'Unfollow' : 'Follow' %>
+                                                                &#64;<%= post.user.username %>
                                                         </span>
                                                     </span>
 
@@ -122,7 +123,7 @@
 
                                                     <% } %>
 
-                                        </span>
+                                        </div>
                                     </div>
 
                                     <div style="width: 100%; margin-block: 1rem;">
