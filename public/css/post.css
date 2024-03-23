@@ -63,7 +63,6 @@ a {
     padding-inline: 1rem;
     box-sizing: border-box;
     border-bottom: var(--border);
-    overflow: hidden;
 }
 
 .main-post {
