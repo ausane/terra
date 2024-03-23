@@ -28,8 +28,8 @@
 
 .profile h4 {
     margin: 0;
-    max-width: 80%;
     color: #efefffee;
+    max-width: max-content;
     overflow-wrap: anywhere;
 }
 
