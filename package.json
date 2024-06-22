@@ -2,9 +2,9 @@
   "engines": {
     "node": "18.17.1"
   },
-  "name": "testing",
+  "name": "terra",
   "version": "1.0.0",
-  "description": "Hello World!",
+  "description": "A text-based social media application.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
