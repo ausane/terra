@@ -1,5 +1,8 @@
 // Establish WebSocket connection
-const socket = new WebSocket('wss://terra-uyvg.onrender.com');
+const socket = new WebSocket('wss://terra-uyvg.onrender.com/messages');
+
+// Establish WebSocket connection for local system
+// const socket = new WebSocket('ws://localhost:8080/messages');
 
 // Event listener for WebSocket connection opened
 socket.addEventListener('open', function (event) {

@@ -1,5 +1,5 @@
 const wrapAsync = require("./wrapAsync");
-const Post = require('../models/schema.js');
+const Post = require('../models/post.js');
 const CustomError = require('./ErrorClass.js');
 const mongoose = require('mongoose');
 
