@@ -1,5 +1,5 @@
 const Chat = require('../models/chat.js');
-const User = require('../models/User.js');
+const User = require('../models/user.js');
 
 const saveMessage = async (parsedMessage) => {
     const { _id_user1, _id_user2, message, timestamp } = parsedMessage;
