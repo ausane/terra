@@ -11,8 +11,8 @@ const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
-const User = require('./models/User.js');
-const { saveMessage, saveSeenMessage } = require('./utils/messageFunctions.js');
+const User = require('./models/user.js');
+const { incomingMessage, onClose } = require('./utils/wssConnection.js');
 
 
 // To require router files
@@ -133,7 +133,7 @@ app.use((err, req, res, next) => {
 });
 
 // Start Server
-const server = app.listen(8080, () => {
+const server = app.listen(process.env.PORT, () => {
     console.log("http://localhost:8080/");
 });
 
@@ -142,51 +142,17 @@ const server = app.listen(8080, () => {
 // WebSocket
 const wss = new WebSocket.Server({ server });
 
+// User Map for WebSocket Connection
 const userMap = new Map();
 
+// WebSocket Connection
 wss.on('connection', function connection(ws) {
     ws.on('message', function incoming(message) {
-        const parsedMessage = JSON.parse(message);
-
-        if (parsedMessage.messageId) {
-            saveSeenMessage(parsedMessage)
-                .then(async (savedMessage) => {
-                    wss.clients.forEach(function each(client) {
-                        const recipientWs = userMap.get(savedMessage.recipient);
-                        if (recipientWs === client && client.readyState === WebSocket.OPEN) {
-                            client.send(JSON.stringify(savedMessage));
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.error('Error saving message to database:', error);
-                });
-        } else if (parsedMessage.message) {
-            saveMessage(parsedMessage)
-                .then((savedMessage) => {
-                    wss.clients.forEach(function each(client) {
-                        const recipientWs = userMap.get(savedMessage.recipient);
-                        if (recipientWs === client && client.readyState === WebSocket.OPEN) {
-                            client.send(JSON.stringify(savedMessage));
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.error('Error saving message to database:', error);
-                });
-        } else if (parsedMessage.id) {
-            // Associate user ID with WebSocket connection
-            userMap.set(parsedMessage.id, ws);
-        }
+        incomingMessage(ws, wss, message, userMap);
     });
 
     ws.on('close', function close() {
-        // Remove WebSocket connection from the map when closed
-        userMap.forEach((value, key) => {
-            if (value === ws) {
-                userMap.delete(key);
-            }
-        });
+        onClose(ws, userMap);
     });
 });
 
