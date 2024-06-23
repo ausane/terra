@@ -73,4 +73,3 @@ This project is a simple text-based web application similar to Twitter. It allow
 
 ## Contributing
 Feel free to submit issues or pull requests. Contributions are welcome!
-
