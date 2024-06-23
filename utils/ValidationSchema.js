@@ -1,4 +1,4 @@
-const { postSchema, commentSchema, profileSchema, chatSchema } = require('../models/mongodb/joi.js');
+const { postSchema, commentSchema, profileSchema, chatSchema } = require('../models/joi-schema/joi.js');
 const CustomError = require('./ErrorClass.js');
 
 module.exports.ValidatePost = (req, res, next) => {

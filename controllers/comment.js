@@ -1,5 +1,5 @@
 const Comment = require('../models/comment.js');
-const Post = require('../models/schema.js');
+const Post = require('../models/post.js');
 
 
 // To Get Post with that Comments
