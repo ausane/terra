@@ -4,7 +4,7 @@
   },
   "name": "terra",
   "version": "1.0.0",
-  "description": "A text-based social media application.",
+  "description": "A text-based social media web application.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
