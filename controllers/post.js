@@ -1,6 +1,6 @@
 const Comment = require('../models/comment.js');
-const Post = require('../models/schema.js');
-const User = require('../models/User.js');
+const Post = require('../models/post.js');
+const User = require('../models/user.js');
 
 
 // To Submit Post Callback

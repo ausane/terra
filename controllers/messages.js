@@ -1,4 +1,4 @@
-const User = require('../models/User.js');
+const User = require('../models/user.js');
 const Chat = require('../models/chat.js');
 const { validateMongoId } = require('../utils/PostExist.js');
 

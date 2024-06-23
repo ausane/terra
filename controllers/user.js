@@ -1,6 +1,6 @@
 // Require Schema
-const User = require('../models/User.js');
-const Post = require('../models/schema.js');
+const User = require('../models/user.js');
+const Post = require('../models/post.js');
 const Comment = require('../models/comment.js');
 
 

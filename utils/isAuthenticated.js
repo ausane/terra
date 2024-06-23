@@ -1,4 +1,4 @@
-const Post = require('../models/schema.js');
+const Post = require('../models/post.js');
 
 module.exports.isAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
