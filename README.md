@@ -41,11 +41,11 @@ This project is a simple text-based web application similar to Twitter. It allow
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/yourproject.git
+    git clone https://github.com/ausane/terra.git
     ```
 2. Navigate to the project directory:
     ```bash
-    cd yourproject
+    cd terra
     ```
 3. Install dependencies:
     ```bash
