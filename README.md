@@ -55,7 +55,7 @@ This project is a simple text-based web application similar to Twitter. It allow
     ```env
     PORT=8080
     COOKIE_CODE=your_cookie_code
-    MONGODB_URI=your_mongodb_uri
+    MONGODB_ATLAS_URL=your_mongodb_uri
     SESSION_SECRET=your_session_secret
     ```
 
@@ -73,4 +73,3 @@ This project is a simple text-based web application similar to Twitter. It allow
 
 ## Contributing
 Feel free to submit issues or pull requests. Contributions are welcome!
-
