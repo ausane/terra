@@ -32,7 +32,7 @@ const composePostBtn = (btn, id, username) => {
         autoResize(postTextarea);
         postTextarea.focus();
     } else if (btn.classList.contains('direct-comment-btn')) {
-        formToComposePost.setAttribute('action', `/${username}/post/${id}/comment/submit`);
+        formToComposePost.setAttribute('action', `/${username}/posts/${id}/comment/submit`);
         const parentPost = document.getElementById(id);
         const copiedDiv = parentPost.cloneNode(true);
         removeCopiedDiv(copiedDiv);

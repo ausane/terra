@@ -13,7 +13,10 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user.js');
 const { incomingMessage, onClose } = require('./utils/wssConnection.js');
+const favicon = require('serve-favicon');
 
+// Serve favicon
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 
 // To require router files
 const userRouter = require('./router/user.js');
@@ -107,7 +110,7 @@ app.use((req, res, next) => {
 app.use('/user', userStatRouter);
 app.use('/post', postRouter);
 app.use('/messages', messageRouter);
-app.use('/:username/post/:id', commentRouter);
+app.use('/:username/posts/:id', commentRouter);
 app.use('/', userRouter);
 
 

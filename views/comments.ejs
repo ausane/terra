@@ -192,7 +192,7 @@
                                     </span>
 
                                     <form id="form-to-post" method="post"
-                                        action="/<%= post.user.username %>/post/<%= post.id %>/comment/submit">
+                                        action="/<%= post.user.username %>/posts/<%= post.id %>/comment/submit">
                                         <textarea name="content" id="comment" oninput="autoResize(this)"
                                             placeholder="Type something..." required></textarea>
                                         <button type="submit" id="post-btn" disabled>Reply</button>

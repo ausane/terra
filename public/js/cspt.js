@@ -59,7 +59,7 @@ function delMessage(message) {
 
 // Go To Post
 const goToPost = (username, id) => {
-    window.location.href = `/${username}/post/${id}`;
+    window.location.href = `/${username}/posts/${id}`;
 }
 
 
